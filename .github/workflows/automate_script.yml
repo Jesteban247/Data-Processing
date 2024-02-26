@@ -1,0 +1,31 @@
+name: Automate Script
+
+on:
+  schedule:
+    - cron: '10 10 * * *'  # Test 10:10
+    #- cron: '0 12 * * *'  # Run every day at 12:00
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  
+
+      - name: Run script
+        run: python /workspaces/Data-Processing/Project/API/api.py
+
+      # After running the script, commit and push the JSON file
+      - name: Commit and push JSON file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Upload of API data at $(date +'%H-%d-%m-%Y')"
+          git push origin main
