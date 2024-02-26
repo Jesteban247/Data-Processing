@@ -1,8 +1,8 @@
-name: Automate Script
+name: Teste
 
 on:
   schedule:
-    - cron: '59 15 * * *'  # Ejecutar todos los días a las 10:05
+    - cron: '03 16 * * *'  # Ejecutar todos los días a las 10:05
 
 jobs:
   run_script:
