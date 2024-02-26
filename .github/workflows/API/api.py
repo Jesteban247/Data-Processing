@@ -77,4 +77,5 @@ print(df_weather.head())
 # Finally, save the DataFrame to a JSON file with the current date in the filename
 current_date = datetime.now().strftime("%d-%m-%Y")
 file_name = f"{current_date}_data.json"
-df_weather.to_json('/workspaces/Data-Processing/Project/API/' + file_name, orient='records')
+df_weather.to_json('/workspaces/Data-Processing/Project/Data/' + file_name, orient='records')
+
