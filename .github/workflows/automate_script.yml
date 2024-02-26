@@ -2,7 +2,7 @@ name: Teste
 
 on:
   schedule:
-    - cron: '03 16 * * *'  # Ejecutar todos los días a las 10:05
+    - cron: '15 21 * * *'  # time zone UTC
 
 jobs:
   run_script:
@@ -18,7 +18,7 @@ jobs:
           python-version: '3.10'  # Elegir la versión de Python apropiada
 
       - name: Run script
-        run: python API/api.py
+        run: python /workspaces/Data-Processing/.github/workflows/API/api.py
 
       # Después de ejecutar el script, confirmar y enviar el archivo JSON
       - name: Commit and push JSON file
