@@ -2,7 +2,7 @@ name: Test
 
 on:
   schedule:
-    - cron: '42 16 * * *'  # 
+    - cron: '28 19 * * *'  #
 
 jobs:
   run_script:
@@ -19,11 +19,3 @@ jobs:
 
       - name: Run script
         run: python api.py
-
-      - name: Commit and push JSON file
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Upload of API data at $(date +'%H-%d-%m-%Y')"
-          git push origin main
